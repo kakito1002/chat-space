@@ -19,7 +19,7 @@
 |group_id|references|null: false, foreign_key: true|
 ### Association
 - belongs_to :group
-
+- belongs_to :user
 ## groupsテーブル
 |Column|Type|Options|
 |------|----|-------|
@@ -27,6 +27,7 @@
 ### Association
 - has_many :users, through: :gorups_users
 - has_many :messages
+- has_many :groups_users
 ## groups_usersテーブル
 |Column|Type|Options|
 |------|----|-------|
