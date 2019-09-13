@@ -18,8 +18,6 @@
 |user_id|references|null: false, foreign_key: true|
 |group_id|references|null: false, foreign_key: true|
 ### Association
-- belongs_to :user
-- has_many :groups_messages
 - belongs_to :group
 
 ## groupsテーブル
@@ -27,7 +25,6 @@
 |------|----|-------|
 |name|string|null: false|
 ### Association
-- has_many :users, through: :gorups_users
 - has_many :users, through: :gorups_users
 - has_many :messages
 ## groups_usersテーブル
