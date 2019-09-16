@@ -7,14 +7,14 @@
     %p.chat-side__header--box-user-name kakihara
     %ul.chat-side__header--box-menu
      %li.chat-side__header--box-menu-new-group
-      %a{:href => "/groups/new"}
-       %i.fa.fa-edit
+     = link_to '#' do
+      =fa_icon 'edit'
      %li.chat-side__header--box-menu-edit-user
-      %a{:href => "/users/edit"}
-       %i.fa.fa-cog
+     = link_to '#' do
+      =fa_icon 'cog'
   .chat-side__groups
    .chat-side__groups--group
-    %a{:href => "/groups/messages"}
+    =link_to '#' do
      %p.chat-side__groups--group-name test-group
      %p.chat-side__groups--latest-message こんにちは
  .chat-main
@@ -25,7 +25,7 @@
     %ul.group-member-list
      Member：
      %li.member-list-name kakihara
-   %a{:href => "/groups/edit"}
+   =link_to '#' do
     .chat-main__header--edit-btn Edit
   .chat-main__messages
    .chat-main__messages--message
@@ -34,7 +34,7 @@
      %p.chat-main__messages--info-date 2019/09/14(Sat) 14:58:54
     %p.chat-main__messages--info-text こんにちは
   .chat-main__form
-   %form.chat-main__form--new-message{"accept-charset" => "UTF-8", :action => "/groups/messages", :enctype => "multipart/form-data", :method => "post"}
+   %form.chat-main__form--new-message{"accept-charset" => "UTF-8", :action => "#", :enctype => "#"}
     %input{:name => "utf8", :type => "hidden", :value => "✓"}/
     %input{:name => "authenticity_token", :type => "hidden", :value => "送信"}/
     .chat-main__form--input-box
