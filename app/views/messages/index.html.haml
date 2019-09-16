@@ -1,0 +1,45 @@
+.flash-box
+ .notice グループを作成しました
+.wrapper
+ .chat-side
+  .chat-side__header
+   .chat-side__header--box
+    %p.chat-side__header--box-user-name kakihara
+    %ul.chat-side__header--box-menu
+     %li.chat-side__header--box-menu-new-group
+      %a{:href => "/groups/new"}
+       %i.fa.fa-edit
+     %li.chat-side__header--box-menu-edit-user
+      %a{:href => "/users/edit"}
+       %i.fa.fa-cog
+  .chat-side__groups
+   .chat-side__groups--group
+    %a{:href => "/groups/messages"}
+     %p.chat-side__groups--group-name test-group
+     %p.chat-side__groups--latest-message こんにちは
+ .chat-main
+  .chat-main__main-header
+   .chat-main__main-header--left-box
+    %h2.left-box-current-group
+     test-group
+    %ul.group-member-list
+     Member：
+     %li.member-list-name kakihara
+   %a{:href => "/groups/edit"}
+    .chat-main__header--edit-btn Edit
+  .chat-main__messages
+   .chat-main__messages--message
+    .chat-main__messages--info
+     %p.chat-main__messages--info-talker kakihara
+     %p.chat-main__messages--info-date 2019/09/14(Sat) 14:58:54
+    %p.chat-main__messages--info-text こんにちは
+  .chat-main__form
+   %form.chat-main__form--new-message{"accept-charset" => "UTF-8", :action => "/groups/messages", :enctype => "multipart/form-data", :method => "post"}
+    %input{:name => "utf8", :type => "hidden", :value => "✓"}/
+    %input{:name => "authenticity_token", :type => "hidden", :value => "送信"}/
+    .chat-main__form--input-box
+     %input.chat-main__form--input-box-text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
+     %label.chat-main__form--input-box-text-image{:for => "message_image"}
+      %i.fa.fa-image
+       %input#message_image.chat-main__form--input-box-image-file{:name => "message[image]", :type => "file"}/
+    %input.chat-main__form--submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
