@@ -1,22 +1,8 @@
 .flash-box
  .notice グループを作成しました
 .wrapper
- .chat-side
-  .chat-side__header
-   .chat-side__header--box
-    %p.chat-side__header--box-user-name kakihara
-    %ul.chat-side__header--box-menu
-     %li.chat-side__header--box-menu-new-group
-     = link_to '#' do
-      =fa_icon 'edit'
-     %li.chat-side__header--box-menu-edit-user
-     = link_to '#' do
-      =fa_icon 'cog'
-  .chat-side__groups
-   .chat-side__groups--group
-    =link_to '#' do
-     %p.chat-side__groups--group-name test-group
-     %p.chat-side__groups--latest-message こんにちは
+ = render "shared/chat-side"
+
  .chat-main
   .chat-main__main-header
    .chat-main__main-header--left-box
@@ -25,7 +11,7 @@
     %ul.group-member-list
      Member：
      %li.member-list-name kakihara
-   =link_to '#' do
+   =link_to '/groups/edit' do
     .chat-main__header--edit-btn Edit
   .chat-main__messages
    .chat-main__messages--message
