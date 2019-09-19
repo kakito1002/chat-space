@@ -9,15 +9,12 @@
      test-group
     %ul.group-member-list
      Member：
-     %li.member-list-name kakihara
+     %li.member-list-name 
+      kakihara
    =link_to '/groups/edit' do
     .chat-main__header--edit-btn Edit
-  .chat-main__messages
-   .chat-main__messages--message
-    .chat-main__messages--info
-     %p.chat-main__messages--info-talker kakihara
-     %p.chat-main__messages--info-date 2019/09/14(Sat) 14:58:54
-    %p.chat-main__messages--info-text こんにちは
+  .messages
+   = render partial: 'message', collection: @messages
   .form
    = form_for [@group, @message] do |f|
     .input-box

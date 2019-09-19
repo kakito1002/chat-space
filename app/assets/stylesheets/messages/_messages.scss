@@ -92,33 +92,35 @@
     position: absolute;
     right: 40px;
   }
-  &__messages {
+  .messages {
     height: calc(100vh - 190px);
     padding: 46px 40px;
     background-color: #fafafa;
     overflow: scroll;
-    &--message {
+    .message {
       padding-bottom: 40px;
-    }
-    &--info {
-      display: flex;
-      margin-bottom: 10px;
-    }
-    &--info-talker {
-      color: #434a54;
-      font-size: 16px;
-      font-weight: bold;
-    }
-    &--info-date {
-      color: #999999;
-      font-size: 12px;
-      margin-left: 10px;
-    }
-    &--info-text {
-      color: #434a54;
-      font-size: 14px;
-      padding-bottom: 10px;
-      text-align: left;
+      .upper-info {
+        display: flex;
+        margin-bottom: 10px;
+        &__user-name {
+          color: #434a54;
+          font-size: 16px;
+          font-weight: bold;
+        }
+        &__date {
+          color: #999999;
+          font-size: 12px;
+          margin-left: 10px;
+        }
+      }
+      .lower-message  {
+        &__content {
+          color: #434a54;
+          font-size: 14px;
+          padding-bottom: 10px;
+          text-align: left;
+        }
+      }
     }
   }
  .form {
