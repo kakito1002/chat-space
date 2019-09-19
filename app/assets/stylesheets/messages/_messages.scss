@@ -121,44 +121,42 @@
       text-align: left;
     }
   }
- &__form {
+ .form {
     height: 90px;
     padding: 20px 40px;
     background-color: #ddd;
-    &--new-message {
+    .new_message {
       display: flex;
+      .input-box{
+        position: relative;
+        width: 100%;
+        &__text {
+          height: 50px;
+          width: 100%;
+          padding: 0 40px 0 10px;
+          color: #434a54;
+          border-style: none;
+        }
+        &__image {
+          font-size: 1.3rem;
+          position: absolute;
+          top: 10px;
+          right: 10px;
+          cursor: pointer;
+          .hidden {
+            display: none;
+          }
+        }
+      }
+      .submit-btn {
+        width: 100px;
+        height: 50px;
+        padding: 0 30px;
+        margin-left: 15px;
+        background-color: #38aef0;
+        color: white;
+        cursor: pointer;
+      }
     }
-  &--input-box {
-    position: relative;
-    width: 100%;
   }
-    &--input-box-text{
-      height: 50px;
-      width: 100%;
-      padding: 0 40px 0 10px;
-      color: #434a54;
-      border-style: none;
-      display: inline-block;
-    }
-    &--input-box-text-image{
-      font-size: 1.3rem;
-      position: absolute;
-      top: 10px;
-      right: 10px;
-      cursor: pointer;
-      }
-      &--input-box-image-file{
-        display: none;
-      }
-      &--submit-btn {
-      width: 100px;
-      height: 50px;
-      padding: 0 30px;
-      margin-left: 15px;
-      background-color: #38aef0;
-      color: white;
-      cursor: pointer;
-      float: right;
-    }
-   }
 }
