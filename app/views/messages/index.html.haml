@@ -9,22 +9,19 @@
      test-group
     %ul.group-member-list
      Member：
-     %li.member-list-name kakihara
-   =link_to '/groups/edit' do
+     - @group.users.each do |user|
+      %li= user.name
+    
+   =link_to edit_group_path(current_user) do
     .chat-main__header--edit-btn Edit
-  .chat-main__messages
-   .chat-main__messages--message
-    .chat-main__messages--info
-     %p.chat-main__messages--info-talker kakihara
-     %p.chat-main__messages--info-date 2019/09/14(Sat) 14:58:54
-    %p.chat-main__messages--info-text こんにちは
-  .chat-main__form
-   %form.chat-main__form--new-message{"accept-charset" => "UTF-8", :action => "#", :enctype => "#"}
-    %input{:name => "utf8", :type => "hidden", :value => "✓"}/
-    %input{:name => "authenticity_token", :type => "hidden", :value => "送信"}/
-    .chat-main__form--input-box
-     %input.chat-main__form--input-box-text{:name => "message[content]", :placeholder => "type a message", :type => "text"}/
-     %label.chat-main__form--input-box-text-image{:for => "message_image"}
-      %i.fa.fa-image
-       %input#message_image.chat-main__form--input-box-image-file{:name => "message[image]", :type => "file"}/
-    %input.chat-main__form--submit-btn{"data-disable-with" => "Send", :name => "commit", :type => "submit", :value => "Send"}/
+  .messages
+   = render partial: 'message', collection: @messages
+  .form
+   = form_for [@group, @message] do |f|
+    .input-box
+     = f.text_field :content, class: 'input-box__text', placeholder: 'type a message'
+     = f.label :image, class: 'input-box__image' do
+      = fa_icon 'picture-o', class: 'icon'
+      = f.file_field :image, class: 'hidden'
+    = f.submit 'Send', class: 'submit-btn'
+  
