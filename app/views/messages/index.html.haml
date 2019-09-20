@@ -15,7 +15,7 @@
    =link_to edit_group_path(current_user) do
     .chat-main__header--edit-btn Edit
   .messages
-   = render partial: 'message', collection: @messages
+   = render @messages
   .form
    = form_for [@group, @message] do |f|
     .input-box
