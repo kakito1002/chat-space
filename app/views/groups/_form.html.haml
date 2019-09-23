@@ -18,8 +18,8 @@
     %label.chat-group-form__label{:for => "chat_group_チャットメンバー"} チャットメンバーを追加
    .chat-group-form__field--right
     .chat-group-form__search.clearfix
-     %input.chat-group-form__input{id: 'user-search-field', placeholder: '追加したいユーザー名を入力してください', type: 'text'}
-    .user-search-result
+     %input#user-search-field.chat-group-form__input{:placeholder => "追加したいユーザー名を入力してください", :type => "text"}/
+    #user-search-result
      / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
   .chat-group-form__field.clearfix
    .chat-group-form__field--left
