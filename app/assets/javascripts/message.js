@@ -33,21 +33,15 @@ $(document).on('turbolinks:load', function(){
         data: message,
         dataType: 'json',
         processData: false,
-        contentType: false
+        contentType: false,
       })
       .done(function(data){
         var html = buildHTML(data);
         $('.messages').append(html);
-        $('#message_content').val(''); 
-        scrollBottom();
-        //スクロール
-        function scrollBottom(){
-          var target = $('.message').last();
-          var position = target.offset().top + $('.messages').scrollTop();
-          $('.messages').animate({
-            scrollTop: position
-          }, 300, 'swing');
-        }
+        //メッセージのリセット
+        $('#new_message')[0].reset(); 
+        //画面のスクロール
+        $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
       })
       .always(function(){
         $('.submit-btn').prop('disabled', false); //キャンセルコード
