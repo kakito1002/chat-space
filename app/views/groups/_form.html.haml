@@ -30,4 +30,21 @@
       %input{name: 'group[user_ids][]', type: 'hidden', value: "#{current_user.id}"}
       %p.chat-group-user__name
        = current_user.name
-    = f.submit class: 'chat-group-form__action-btn'
+     - group.users.each do |group_user|
+      - if group_user != current_user
+       .chat-group-user.clearfix.js-chat-member{id: "#{group_user.id}"}
+        %input{name: 'group[user_ids][]', type: 'hidden', value: "#{group_user.id}"}
+        %p.chat-group-user__name
+         = group_user.name
+        %a.user-search-remove.chat-group-user__btn.chat-group-user__btn--remove.js-remove-btn
+         削除
+  .chat-group-form__field.clearfix
+   .chat-group-form__field--left
+   .chat-group-form__field--right
+    - if controller.controller_name == "groups" && controller.action_name == "new"
+     = f.submit "登録する", class: 'chat-group-form__action-btn'
+    - else
+     = f.submit "更新する", class: 'chat-group-form__action-btn'
+
+
+
