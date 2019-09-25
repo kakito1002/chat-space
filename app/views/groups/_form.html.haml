@@ -21,5 +21,17 @@
    / この部分はインクリメンタルサーチ（ユーザー追加の非同期化のときに使用します
  .chat-group-form__field.clearfix
   .chat-group-form__field--left
+   = f.label :name, "チャットメンバー", class: 'chat-group-form__label'
   .chat-group-form__field--right
+   .chat-group-users.js-add-user
+    .chat-group-user.clearfix.js-chat-member{id: "#{current_user.id}"}
+     %input{name: 'group[user_ids][]', type: 'hidden', value: "#{current_user.id}"}
+     %p.chat-group-user__name
+      = current_user.name
+    - group.users.each do |group_user|
+     - if group_user != current_user
+      .chat-group-user.clearfix.js-chat-member{id: "#{group_user.id}"}
+       %input{name: 'group[user_ids][]', type: 'hidden', value: "#{group_user.id}"}
+       %p.chat-group-user__name
+        = group_user.name
    = f.submit class: 'chat-group-form__action-btn'
