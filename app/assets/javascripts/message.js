@@ -72,6 +72,8 @@ $(document).on('turbolinks:load', function(){
           insertHTML = buildHTML(message); 
           //メッセージを追加
           $('.messages').append(insertHTML)
+          //画面のスクロール
+          $('.messages').animate({ scrollTop: $('.messages')[0].scrollHeight});
         })
         
   
