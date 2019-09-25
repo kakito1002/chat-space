@@ -16,6 +16,15 @@ $(document).on('turbolinks:load', function() {
         return html
     }
 
+    function AddUserHTML(name, id){
+        var html = `<div class='chat-group-user'>
+                      <input name='group[user_ids][]' type='hidden' value='${id}'>
+                      <p class='chat-group-user__name'>${name}</p>
+                      <div class='user-search-remove chat-group-user__btn chat-group-user__btn--remove js-remove-btn'>削除</div>
+                    </div>`
+        return html;
+    }
+
     $('#user-search-field').on('keyup', function(e){
       e.preventDefault();
       var input = $("#user-search-field").val();
