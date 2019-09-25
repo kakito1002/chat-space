@@ -6,13 +6,13 @@
   .chat-main__main-header
    .chat-main__main-header--left-box
     %h2.left-box-current-group
-     test-group
+     =@group.name
     %ul.group-member-list
      Member：
      - @group.users.each do |user|
       %li= user.name
     
-   =link_to edit_group_path(current_user) do
+   =link_to edit_group_path(@group) do
     .chat-main__header--edit-btn Edit
   .messages
    = render @messages
