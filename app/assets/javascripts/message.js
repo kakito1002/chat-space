@@ -81,4 +81,5 @@ $(document).on('turbolinks:load', function(){
         console.log('error');
       });
     };
+    setInterval(reloadMessages, 5000);
 });
