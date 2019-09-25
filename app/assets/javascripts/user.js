@@ -49,4 +49,16 @@ $(document).on('turbolinks:load', function() {
         alert('ユーザー検索に失敗しました');
       })
    });
+   $(function(){
+      $('#user-search-result').on("click", '.user-search-add', function () {
+        var addUserName = $(this).attr('data-user-name')
+        var addUserId =$(this).attr('data-user-id')
+        var html = AddUserHTML(addUserName, addUserId);
+        $('.chat-group-users').append(html);
+        $(this).parent().remove();
+      });
+      $(document).on("click", '.user-search-remove', function () {
+        $(this).parent().remove();
+      });
+   });
 });
