@@ -70,7 +70,6 @@ $(document).on('turbolinks:load', function(){
               var insertHTML = '';
               //配列messagesの中身一つ一つを取り出し、HTMLに変換したものを入れ物に足し合わせる
               messages.forEach(function (message) {
-                console.log(message)
                 //メッセージが入ったHTMLを取得
                 insertHTML = buildHTML(message); 
                 //メッセージを追加
