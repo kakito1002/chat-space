@@ -52,7 +52,7 @@ $(document).on('turbolinks:load', function(){
 
     var reloadMessages = function() {
         //カスタムデータ属性を利用し、ブラウザに表示されている最新メッセージのidを取得
-        if (window.location.href.match(/\/groups\/\d+\/messages/)){
+        if (window.location.href.match(/\/groups\/\d+\/messages/)) {
           var last_message_id = $('.message:last').data('id')
 
           $.ajax({
